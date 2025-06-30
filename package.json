@@ -1,0 +1,80 @@
+{
+  "name": "@a11ylint/core",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Accessibility core linter",
+  "author": "pplancq <paul.plancq@outlook.fr>",
+  "maintainers": [
+    "pplancq <paul.plancq@outlook.fr>",
+    "CroquetMickael <mickael.croquet@laposte.net>"
+  ],
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a11ylint/core"
+  },
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "tsc",
+    "lint": "concurrently --prefix-colors auto \"npm:eslint\" \"npm:tsc\"",
+    "eslint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\"",
+    "eslint:fix": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
+    "tsc": "tsc --noEmit",
+    "package:check": "npm exec --yes package-lock-utd@1.1.3",
+    "release": "semantic-release",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">= 20"
+  },
+  "bugs": {
+    "url": "https://github.com/a11ylint/core/issues"
+  },
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "lint",
+    "linter",
+    "RGAA"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@pplancq/commitlint-config": "^2.2.0",
+    "@pplancq/eslint-config": "^4.0.19",
+    "@pplancq/prettier-config": "^1.1.0",
+    "@pplancq/semantic-release-config": "^1.6.4",
+    "@types/node": "^22.14.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.24.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.5",
+    "tsc-files": "^1.1.4",
+    "typescript": "^5.5.4"
+  },
+  "prettier": "@pplancq/prettier-config",
+  "commitlint": {
+    "extends": [
+      "@pplancq/commitlint-config"
+    ]
+  },
+  "lint-staged": {
+    "*.(js|jsx|ts|tsx)": "eslint --fix",
+    "*.{ts,tsx}": "tsc-files --noEmit",
+    "(package|package-lock).json": "npm run package:check"
+  },
+  "release": {
+    "extends": [
+      "@pplancq/semantic-release-config"
+    ]
+  },
+  "volta": {
+    "node": "22.14.0",
+    "npm": "11.3.0"
+  }
+}
