@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import A11lintPlaywright from '@a11ylint/playwright';
+// eslint-disable-next-line import/no-relative-packages
+import A11lintPlaywright from '../../src/index';
 import { test } from './AccessibilityFixtures';
 
 test('Accessibility testing ', async ({ page, URLS }) => {

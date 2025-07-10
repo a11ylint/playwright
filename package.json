@@ -59,7 +59,7 @@
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
-    "@playwright/test": "^1.53.2",
+    "@playwright/test": "1.54.0",
     "playwright-core": ">= 1.0.0"
   },
   "prettier": "@pplancq/prettier-config",
