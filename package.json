@@ -1,8 +1,8 @@
 {
-  "name": "@a11ylint/core",
+  "name": "@a11ylint/playwright",
   "version": "0.0.0",
   "license": "MIT",
-  "description": "Accessibility core linter",
+  "description": "A11ylint playwright integration",
   "author": "pplancq <paul.plancq@outlook.fr>",
   "maintainers": [
     "pplancq <paul.plancq@outlook.fr>",
@@ -13,14 +13,15 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a11ylint/core"
+    "url": "git+https://github.com/a11ylint/playwright"
   },
   "scripts": {
     "prebuild": "rimraf build",
     "build": "tsc",
+    "build:browser-utils": "tsc ./src/browserUtils.ts --module commonjs --outDir ./build && node ./scripts/strip-export.js",
     "lint": "concurrently --prefix-colors auto \"npm:eslint\" \"npm:tsc\"",
-    "eslint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\"",
-    "eslint:fix": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
+    "eslint": "eslint \"{src,tests,scripts}/**/*.{js,jsx,ts,tsx}\"",
+    "eslint:fix": "eslint \"{src,tests,scripts}/**/*.{js,jsx,ts,tsx}\" --fix",
     "tsc": "tsc --noEmit",
     "package:check": "npm exec --yes package-lock-utd@1.1.3",
     "release": "semantic-release",
@@ -30,7 +31,7 @@
     "node": ">= 20"
   },
   "bugs": {
-    "url": "https://github.com/a11ylint/core/issues"
+    "url": "https://github.com/a11ylint/playwright/issues"
   },
   "keywords": [
     "a11y",
@@ -57,6 +58,10 @@
     "tsc-files": "^1.1.4",
     "typescript": "^5.5.4"
   },
+  "peerDependencies": {
+    "@playwright/test": "1.54.0",
+    "playwright-core": ">= 1.0.0"
+  },
   "prettier": "@pplancq/prettier-config",
   "commitlint": {
     "extends": [
@@ -76,5 +81,12 @@
   "volta": {
     "node": "22.14.0",
     "npm": "11.3.0"
+  },
+  "files": [
+    "build",
+    "browserHelpers"
+  ],
+  "dependencies": {
+    "@a11ylint/core": "1.0.0-alpha.3"
   }
 }
