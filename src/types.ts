@@ -1,4 +1,4 @@
 export type RGAAURLSType = {
   url: string;
-  textToWait: string;
+  waitingPredicate: () => Promise<unknown>;
 };
