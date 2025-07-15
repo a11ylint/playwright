@@ -1,3 +1,8 @@
+## 1.0.0-alpha.2 (2025-07-15)
+
+* Merge pull request #3 from a11ylint/feature/FixingWaitingPredicate ([92cbe77](https://github.com/a11ylint/playwright/commit/92cbe77)), closes [#3](https://github.com/a11ylint/playwright/issues/3)
+* feat: using a custom predicate to load the page ([5ae858d](https://github.com/a11ylint/playwright/commit/5ae858d))
+
 ## 1.0.0-alpha.1 (2025-07-12)
 
 * ci: adding build step on .github actions files ([7ff7c3c](https://github.com/a11ylint/playwright/commit/7ff7c3c))
