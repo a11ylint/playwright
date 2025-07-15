@@ -38,7 +38,7 @@ export class Playwright {
     for (const urlObj of urls) {
       await page.goto(urlObj.url);
       await page.waitForLoadState('domcontentloaded');
-      await page.getByText(urlObj.textToWait).isVisible();
+      await urlObj.waitingPredicate();
       const results = await page.evaluate(() => {
         const frames = window.A11YLINT_PLAYWRIGHT.extractFrames();
         const images = window.A11YLINT_PLAYWRIGHT.extractImages();
