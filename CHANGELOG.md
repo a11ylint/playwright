@@ -1,3 +1,8 @@
+## 1.0.0-alpha.4 (2025-07-17)
+
+* Merge pull request #9 from a11ylint/feature/BumpVersionToFix ([fe99bea](https://github.com/a11ylint/playwright/commit/fe99bea)), closes [#9](https://github.com/a11ylint/playwright/issues/9)
+* fix: bump @a11ylint/core with import fix ([c18b468](https://github.com/a11ylint/playwright/commit/c18b468))
+
 ## 1.0.0-alpha.3 (2025-07-17)
 
 * Merge pull request #6 from a11ylint/feature/bumpCore ([454974c](https://github.com/a11ylint/playwright/commit/454974c)), closes [#6](https://github.com/a11ylint/playwright/issues/6)
