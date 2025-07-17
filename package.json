@@ -1,6 +1,6 @@
 {
   "name": "@a11ylint/playwright",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "license": "MIT",
   "description": "A11ylint playwright integration",
   "author": "pplancq <paul.plancq@outlook.fr>",

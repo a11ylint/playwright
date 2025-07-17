@@ -1,3 +1,8 @@
+## 1.0.0-alpha.3 (2025-07-17)
+
+* Merge pull request #6 from a11ylint/feature/bumpCore ([454974c](https://github.com/a11ylint/playwright/commit/454974c)), closes [#6](https://github.com/a11ylint/playwright/issues/6)
+* fix: bump @a11ylint/core to the latest version ([c3f5094](https://github.com/a11ylint/playwright/commit/c3f5094))
+
 ## 1.0.0-alpha.2 (2025-07-15)
 
 * Merge pull request #3 from a11ylint/feature/FixingWaitingPredicate ([92cbe77](https://github.com/a11ylint/playwright/commit/92cbe77)), closes [#3](https://github.com/a11ylint/playwright/issues/3)
