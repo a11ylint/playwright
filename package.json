@@ -41,11 +41,11 @@
     "RGAA"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@pplancq/commitlint-config": "^2.2.0",
+    "@commitlint/cli": "^19.8.1",
+    "@pplancq/commitlint-config": "^2.2.3",
     "@pplancq/eslint-config": "^4.0.19",
     "@pplancq/prettier-config": "^1.1.0",
-    "@pplancq/semantic-release-config": "^1.6.4",
+    "@pplancq/semantic-release-config": "^1.6.7",
     "@types/node": "^22.14.1",
     "concurrently": "^9.1.2",
     "eslint": "^9.24.0",
@@ -54,7 +54,7 @@
     "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
-    "semantic-release": "^24.2.5",
+    "semantic-release": "^24.2.7",
     "tsc-files": "^1.1.4",
     "typescript": "^5.5.4"
   },
