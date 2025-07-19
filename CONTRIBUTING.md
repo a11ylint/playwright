@@ -1,4 +1,4 @@
-# Contributing to @a11ylint/core
+# Contributing to @a11ylint/playwright
 
 First off, thanks for taking the time to contribute! ❤️
 
@@ -17,18 +17,18 @@ The community looks forward to your contributions. 🎉
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the
-[@a11ylint/core Code of Conduct](https://github.com/a11ylint/core/blob/main/CODE_OF_CONDUCT.md).
+[@a11ylint/playwright Code of Conduct](https://github.com/a11ylint/playwright/blob/main/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code.
 
 ## I Have a Question
 
-> If you want to ask a question, we assume that you have read the available [Documentation](https://github.com/a11ylint/core).
+> If you want to ask a question, we assume that you have read the available [Documentation](https://github.com/a11ylint/playwright).
 
-Before you ask a question, it is best to search for existing [Issues](https://github.com/a11ylint/core/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
+Before you ask a question, it is best to search for existing [Issues](https://github.com/a11ylint/playwright/issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
 
 If you then still feel the need to ask a question and need clarification, we recommend the following:
 
-- Open an [Issue](https://github.com/a11ylint/core/issues/new).
+- Open an [Issue](https://github.com/a11ylint/playwright/issues/new).
 - Provide as much context as you can about what you're running into.
 - Provide project and platform versions (nodejs, npm, etc), depending on what seems relevant.
 
