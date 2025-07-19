@@ -2,6 +2,17 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      dryRun:
+        description: 'Dry run'
+        required: false
+        type: boolean
+        default: false
+      debug:
+        description: 'Debug mode'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -44,4 +55,12 @@ jobs:
           GIT_AUTHOR_NAME: release[bot]
           GIT_COMMITTER_EMAIL: release[bot]@users.noreply.github.com
           GIT_COMMITTER_NAME: release[bot]
-        run: npm run release
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dryRun }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.debug }}" = "true" ]; then
+            ARGS="$ARGS --debug"
+          fi
+          npm run release -- $ARGS
