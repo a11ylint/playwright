@@ -3,9 +3,9 @@
   "version": "1.0.0-alpha.4",
   "license": "MIT",
   "description": "A11ylint playwright integration",
-  "author": "pplancq <paul.plancq@outlook.fr>",
+  "author": "PLANCQ Paul <paul.plancq@outlook.fr>",
   "maintainers": [
-    "pplancq <paul.plancq@outlook.fr>",
+    "PLANCQ Paul <paul.plancq@outlook.fr>",
     "CroquetMickael <mickael.croquet@laposte.net>"
   ],
   "main": "build/index.js",
@@ -18,7 +18,6 @@
   "scripts": {
     "prebuild": "rimraf build",
     "build": "tsc",
-    "build:browser-utils": "tsc ./src/browserUtils.ts --module commonjs --outDir ./build && node ./scripts/strip-export.js",
     "lint": "concurrently --prefix-colors auto \"npm:eslint\" \"npm:tsc\"",
     "eslint": "eslint \"{src,tests,scripts}/**/*.{js,jsx,ts,tsx}\"",
     "eslint:fix": "eslint \"{src,tests,scripts}/**/*.{js,jsx,ts,tsx}\" --fix",
@@ -43,15 +42,15 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@pplancq/commitlint-config": "^2.2.3",
-    "@pplancq/eslint-config": "^4.0.19",
+    "@pplancq/eslint-config": "^5.0.0",
     "@pplancq/prettier-config": "^1.1.0",
     "@pplancq/semantic-release-config": "^1.6.7",
-    "@types/node": "^22.14.1",
+    "@types/node": "^24.0.15",
     "concurrently": "^9.1.2",
     "eslint": "^9.24.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.9",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.7",
