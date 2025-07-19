@@ -1,4 +1,4 @@
-# Code of Conduct - @a11ylint/core
+# Code of Conduct - @a11ylint/playwright
 
 ## Our Pledge
 
