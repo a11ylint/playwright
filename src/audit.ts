@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import type { Page } from 'playwright/test';
 import A11ylint from '@a11ylint/core';
-import type { SvgImageArea } from '@a11ylint/core';
+import type { SvgImageArea, VirtualContrastsElement } from '@a11ylint/core';
 import type { RGAAURLSType } from './types.js';
 import { groupResultsByBaseUrl } from './utils.js';
 
@@ -20,12 +20,18 @@ export class Playwright {
     // Expose RGAA8 methods to the browser context
     await page.exposeFunction(
       'accessibilityTesting',
-      (document: Document, images: Array<SvgImageArea>, frames: Array<HTMLIFrameElement | HTMLFrameElement>) =>
+      (
+        document: Document,
+        images: Array<SvgImageArea>,
+        frames: Array<HTMLIFrameElement | HTMLFrameElement>,
+        colors: Array<VirtualContrastsElement>,
+      ) =>
         A11ylintInstance.run({
           mode: 'virtual',
           document,
           images,
           frames,
+          colorsElements: colors,
           customIframeBannedWords: [],
         }),
     );
@@ -38,13 +44,14 @@ export class Playwright {
     for (const urlObj of urls) {
       await page.goto(urlObj.url);
       await page.waitForLoadState('domcontentloaded');
-      await urlObj.waitingPredicate();
+      await urlObj.waitingPredicate(page);
       const results = await page.evaluate(() => {
         const frames = window.A11YLINT_PLAYWRIGHT.extractFrames();
         const images = window.A11YLINT_PLAYWRIGHT.extractImages();
         const documentData = window.A11YLINT_PLAYWRIGHT.extractDocumentData();
+        const colorsContrast = window.A11YLINT_PLAYWRIGHT.extractColorContrasts();
         // @ts-expect-error: accessibilityTesting is injected by exposeFunction
-        return window.accessibilityTesting(documentData, images, frames);
+        return window.accessibilityTesting(documentData, images, frames, colorsContrast);
       });
       resultsOfPages.push({ url: urlObj.url, result: results });
     }
