@@ -1,4 +1,6 @@
+import { Page } from '@playwright/test';
+
 export type RGAAURLSType = {
   url: string;
-  waitingPredicate: () => Promise<unknown>;
+  waitingPredicate: (page: Page) => Promise<unknown>;
 };

@@ -6,6 +6,7 @@ declare global {
       extractFrames: () => unknown;
       extractImages: () => unknown;
       extractDocumentData: () => unknown;
+      extractColorContrasts: () => unknown;
     };
   }
 }
