@@ -46,7 +46,7 @@
     "@pplancq/prettier-config": "^1.1.0",
     "@pplancq/semantic-release-config": "^1.6.7",
     "@types/node": "^24.0.15",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.0",
     "eslint": "^9.24.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.4",
