@@ -8,10 +8,19 @@ runs:
       shell: bash
       run: echo "NODE_VERSION=$(jq -r .volta.node package.json)" >> $GITHUB_ENV
 
+    - name: Get npm version
+      shell: bash
+      run: echo "NPM_VERSION=$(jq -r .volta.npm package.json)" >> $GITHUB_ENV
+
     - name: Setup Node.js
       uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
       with:
         node-version: ${{ env.NODE_VERSION }}
+
+    - name: Setup npm version
+      if: ${{ env.NPM_VERSION }}
+      shell: bash
+      run: npm install -g npm@${{ env.NPM_VERSION }}
 
     - name: Cache node modules
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
