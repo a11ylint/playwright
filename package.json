@@ -55,7 +55,7 @@
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.9",
     "tsc-files": "^1.1.4",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@playwright/test": ">= 1.54.0",
