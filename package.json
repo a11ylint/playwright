@@ -22,7 +22,7 @@
     "eslint": "eslint \"{src,tests,scripts}/**/*.{js,jsx,ts,tsx}\"",
     "eslint:fix": "eslint \"{src,tests,scripts}/**/*.{js,jsx,ts,tsx}\" --fix",
     "tsc": "tsc --noEmit",
-    "package:check": "npm exec --yes package-lock-utd@1.1.3",
+    "package:check": "node ./scripts/package-check.mjs",
     "release": "semantic-release",
     "prepare": "husky"
   },
