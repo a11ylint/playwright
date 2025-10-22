@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { test as base } from '@playwright/test';
+import { test as base, Page } from '@playwright/test';
 
 export type RGAAURLSType = {
   url: string;
-  textToWait: string;
+  waitingPredicate: (page: Page) => Promise<void>;
 };
 
 export type RGAATestsOptions = {
