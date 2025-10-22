@@ -6,6 +6,16 @@ function extractFrames() {
   }));
 }
 
+function extractHeadings() {
+  return Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6, [role="heading"]')).map(element => ({
+    type: 'heading',
+    tagName: element.tagName.toLowerCase(),
+    role: element.getAttribute('role'),
+    ariaLevel: element.getAttribute('aria-level'),
+    outerHTML: element.outerHTML,
+  }));
+}
+
 function extractImages() {
   return Array.from(document.querySelectorAll('img, svg, area')).map(element => ({
     type: element.tagName.toLowerCase(),
@@ -93,4 +103,5 @@ window.A11YLINT_PLAYWRIGHT = {
   extractImages,
   extractColorContrasts,
   extractDocumentData,
+  extractHeadings,
 };

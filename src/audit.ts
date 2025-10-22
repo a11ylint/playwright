@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import type { Page } from 'playwright/test';
 import A11ylint from '@a11ylint/core';
-import type { SvgImageArea, VirtualContrastsElement } from '@a11ylint/core';
+import type { SvgImageArea, VirtualContrastsElement, HeadingVirtualElement } from '@a11ylint/core';
 import type { RGAAURLSType } from './types.js';
 import { groupResultsByBaseUrl } from './utils.js';
 
@@ -25,6 +25,7 @@ export class Playwright {
         images: Array<SvgImageArea>,
         frames: Array<HTMLIFrameElement | HTMLFrameElement>,
         colors: Array<VirtualContrastsElement>,
+        headings: Array<HTMLHeadingElement> | Array<HeadingVirtualElement>,
       ) =>
         A11ylintInstance.run({
           mode: 'virtual',
@@ -33,6 +34,7 @@ export class Playwright {
           frames,
           colorsElements: colors,
           customIframeBannedWords: [],
+          headings,
         }),
     );
 
@@ -49,9 +51,10 @@ export class Playwright {
         const frames = window.A11YLINT_PLAYWRIGHT.extractFrames();
         const images = window.A11YLINT_PLAYWRIGHT.extractImages();
         const documentData = window.A11YLINT_PLAYWRIGHT.extractDocumentData();
+        const headings = window.A11YLINT_PLAYWRIGHT.extractHeadings();
         const colorsContrast = window.A11YLINT_PLAYWRIGHT.extractColorContrasts();
         // @ts-expect-error: accessibilityTesting is injected by exposeFunction
-        return window.accessibilityTesting(documentData, images, frames, colorsContrast);
+        return window.accessibilityTesting(documentData, images, frames, colorsContrast, headings);
       });
       resultsOfPages.push({ url: urlObj.url, result: results });
     }
