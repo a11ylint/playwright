@@ -27,7 +27,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">= 20"
+    "node": "^20.19.5 || ^22.14.0 || >= 24.10.0"
   },
   "bugs": {
     "url": "https://github.com/a11ylint/playwright/issues"
