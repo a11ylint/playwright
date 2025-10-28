@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { defineConfig } from '@playwright/test';
+import { defineConfig, Page } from '@playwright/test';
 import { RGAATestsOptions } from './tests/AccessibilityFixtures';
 
 /**
@@ -31,27 +31,39 @@ export default defineConfig<RGAATestsOptions>({
         URLS: [
           {
             url: 'https://playwright.dev',
-            textToWait: 'Playwright enables',
+            waitingPredicate: async (page: Page) => {
+              await page.waitForSelector('text=Playwright enables');
+            },
           },
           {
             url: 'https://fake-university.com',
-            textToWait: 'Choose your future',
+            waitingPredicate: async (page: Page) => {
+              await page.waitForSelector('text=Choose your future');
+            },
           },
           {
             url: 'https://fake-university.com/about.html',
-            textToWait: 'About the Fake University',
+            waitingPredicate: async (page: Page) => {
+              await page.waitForSelector('text=About the Fake University');
+            },
           },
           {
             url: 'https://fake-university.com/news-and-events.html',
-            textToWait: 'Stay connected and informed with the latest news and events',
+            waitingPredicate: async (page: Page) => {
+              await page.waitForSelector('text=Stay connected and informed with the latest news and events');
+            },
           },
           {
             url: 'https://www.lesnumeriques.com/',
-            textToWait: 'Produits populaires',
+            waitingPredicate: async (page: Page) => {
+              await page.waitForSelector('text=Produits populaires');
+            },
           },
           {
-            url: 'https://www.lesnumeriques.com/vie-du-net/soldes-ete-e1215.html',
-            textToWait: 'Soldes été du 25 juin',
+            url: 'https://mickaelcroquet.fr',
+            waitingPredicate: async (page: Page) => {
+              await page.waitForSelector('text=a french full stack developper currently based at Lille working at AXA');
+            },
           },
         ],
       },
