@@ -77,6 +77,90 @@ function extractColorContrasts() {
     .filter(item => item !== null); // Remove null elements
 }
 
+function extractFormFields() {
+  const formElements = Array.from(document.querySelectorAll('input, select, textarea'));
+
+  return formElements.map(element => {
+    const { id, title } = element;
+    const ariaLabel = element.getAttribute('aria-label');
+    const ariaLabelledby = element.getAttribute('aria-labelledby');
+
+    // Check for associated label
+    let hasLabelFor = false;
+    let labelForId = null;
+    if (id) {
+      const label = document.querySelector(`label[for="${id}"]`);
+      if (label) {
+        hasLabelFor = true;
+        labelForId = id;
+      }
+    }
+
+    // Check for adjacent buttons (next and previous siblings)
+    const nextSibling = element.nextElementSibling;
+    const prevSibling = element.previousElementSibling;
+
+    let hasAdjacentButton = false;
+    let adjacentButtonHasValidLabel = false;
+
+    const checkButton = button => {
+      if (button && button.tagName.toLowerCase() === 'button') {
+        hasAdjacentButton = true;
+        const buttonAriaLabel = button.getAttribute('aria-label');
+        const buttonAriaLabelledby = button.getAttribute('aria-labelledby');
+        const buttonText = button.textContent?.trim();
+        const buttonTitle = button.getAttribute('title');
+
+        if (buttonAriaLabel || buttonAriaLabelledby || (buttonText && buttonText.length > 0) || buttonTitle) {
+          adjacentButtonHasValidLabel = true;
+        }
+      }
+    };
+
+    checkButton(nextSibling);
+    if (!adjacentButtonHasValidLabel) {
+      checkButton(prevSibling);
+    }
+
+    // Check for hidden labels when there's an adjacent button
+    let hasHiddenLabel = false;
+    if (hasAdjacentButton && id) {
+      const hiddenLabels = document.querySelectorAll(`label[for="${id}"]`);
+      hiddenLabels.forEach(label => {
+        const labelElement = label;
+        const style = window.getComputedStyle(labelElement);
+        const isVisuallyHidden =
+          style.position === 'absolute' &&
+          (style.left === '-10000px' ||
+            style.left === '-9999px' ||
+            style.clip === 'rect(0, 0, 0, 0)' ||
+            style.clip === 'rect(0px, 0px, 0px, 0px)' ||
+            style.clipPath === 'inset(50%)' ||
+            style.width === '1px' ||
+            style.height === '1px');
+
+        if (isVisuallyHidden) {
+          hasHiddenLabel = true;
+        }
+      });
+    }
+
+    return {
+      type: element.tagName.toLowerCase(),
+      id: id || undefined,
+      ariaLabel: ariaLabel || undefined,
+      ariaLabelledby: ariaLabelledby || undefined,
+      title: title || undefined,
+      outerHTML: element.outerHTML,
+      hasLabelFor,
+      labelForId,
+      hasAdjacentButton,
+      adjacentButtonHasValidLabel,
+      hasHiddenLabel,
+    };
+  });
+}
+
 function extractDocumentData() {
   return {
     title: document.title,
@@ -93,4 +177,5 @@ window.A11YLINT_PLAYWRIGHT = {
   extractImages,
   extractColorContrasts,
   extractDocumentData,
+  extractFormFields,
 };
