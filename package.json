@@ -87,6 +87,6 @@
     "browserHelpers"
   ],
   "dependencies": {
-    "@a11ylint/core": "1.0.0-alpha.6"
+    "@a11ylint/core": "1.0.0-alpha.7"
   }
 }
