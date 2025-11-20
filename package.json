@@ -44,7 +44,7 @@
     "@pplancq/commitlint-config": "^2.3.0",
     "@pplancq/eslint-config": "^5.0.12",
     "@pplancq/prettier-config": "^1.2.8",
-    "@pplancq/semantic-release-config": "^2.0.1",
+    "@pplancq/semantic-release-config": "^2.0.2",
     "@types/node": "^24.10.1",
     "concurrently": "^9.2.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
