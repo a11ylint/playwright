@@ -76,7 +76,8 @@
   "release": {
     "extends": [
       "@pplancq/semantic-release-config"
-    ]
+    ],
+    "repositoryUrl": "https://github.com/a11ylint/playwright"
   },
   "volta": {
     "node": "24.11.1",
