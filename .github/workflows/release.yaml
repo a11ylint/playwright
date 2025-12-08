@@ -45,12 +45,13 @@ jobs:
         run: npm run build
 
       - name: Config npm
-        run: npm config set access=public
+        run: |
+          npm config set access=public
+          npm config set provenance=true
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_AUTHOR_EMAIL: release[bot]@users.noreply.github.com
           GIT_AUTHOR_NAME: release[bot]
           GIT_COMMITTER_EMAIL: release[bot]@users.noreply.github.com
