@@ -45,7 +45,7 @@
     "@pplancq/eslint-config": "^5.0.16",
     "@pplancq/prettier-config": "^1.2.8",
     "@pplancq/semantic-release-config": "^2.0.3",
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.10.2",
     "concurrently": "^9.2.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
     "eslint": "^9.39.1",
