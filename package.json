@@ -45,7 +45,7 @@
     "@pplancq/eslint-config": "^5.0.16",
     "@pplancq/prettier-config": "^1.2.8",
     "@pplancq/semantic-release-config": "^2.0.3",
-    "@types/node": "^24.10.2",
+    "@types/node": "^24.10.3",
     "concurrently": "^9.2.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
     "eslint": "^9.39.1",
@@ -80,7 +80,7 @@
     "repositoryUrl": "https://github.com/a11ylint/playwright"
   },
   "volta": {
-    "node": "24.11.1",
+    "node": "24.12.0",
     "npm": "11.7.0"
   },
   "files": [
