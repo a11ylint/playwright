@@ -98,10 +98,23 @@ function extractDocumentData() {
   };
 }
 
+function extractLinks() {
+  return Array.from(document.querySelectorAll('a, [role="link"]')).map(element => ({
+    type: element.tagName.toLowerCase(),
+    outerHTML: element.outerHTML,
+    href: element.getAttribute('href'),
+    textContent: element.textContent,
+    title: element.getAttribute('title'),
+    ariaLabel: element.getAttribute('aria-label'),
+    ariaLabelledBy: element.getAttribute('aria-labelledby'),
+  }));
+}
+
 window.A11YLINT_PLAYWRIGHT = {
   extractFrames,
   extractImages,
   extractColorContrasts,
   extractDocumentData,
+  extractLinks,
   extractHeadings,
 };
