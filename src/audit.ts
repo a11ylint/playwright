@@ -26,6 +26,7 @@ export class Playwright {
         frames: Array<HTMLIFrameElement | HTMLFrameElement>,
         colors: Array<VirtualContrastsElement>,
         headings: Array<HTMLHeadingElement> | Array<HeadingVirtualElement>,
+        links: Array<HTMLAnchorElement | HTMLElement>,
       ) =>
         A11ylintInstance.run({
           mode: 'virtual',
@@ -33,6 +34,7 @@ export class Playwright {
           images,
           frames,
           colorsElements: colors,
+          links,
           customIframeBannedWords: [],
           headings,
         }),
@@ -51,10 +53,11 @@ export class Playwright {
         const frames = window.A11YLINT_PLAYWRIGHT.extractFrames();
         const images = window.A11YLINT_PLAYWRIGHT.extractImages();
         const documentData = window.A11YLINT_PLAYWRIGHT.extractDocumentData();
+        const links = window.A11YLINT_PLAYWRIGHT.extractLinks();
         const headings = window.A11YLINT_PLAYWRIGHT.extractHeadings();
         const colorsContrast = window.A11YLINT_PLAYWRIGHT.extractColorContrasts();
         // @ts-expect-error: accessibilityTesting is injected by exposeFunction
-        return window.accessibilityTesting(documentData, images, frames, colorsContrast, headings);
+        return window.accessibilityTesting(documentData, images, frames, colorsContrast, headings, links);
       });
       resultsOfPages.push({ url: urlObj.url, result: results });
     }
