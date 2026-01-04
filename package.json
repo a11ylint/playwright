@@ -40,7 +40,7 @@
     "RGAA"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^20.2.0",
+    "@commitlint/cli": "^20.3.0",
     "@pplancq/commitlint-config": "^2.3.1",
     "@pplancq/eslint-config": "^5.0.19",
     "@pplancq/prettier-config": "^1.2.8",
