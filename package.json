@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "@commitlint/cli": "^20.3.0",
-    "@pplancq/commitlint-config": "^2.3.1",
+    "@pplancq/commitlint-config": "^2.3.2",
     "@pplancq/eslint-config": "^5.0.20",
     "@pplancq/prettier-config": "^1.2.8",
     "@pplancq/semantic-release-config": "^2.0.4",
