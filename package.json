@@ -43,7 +43,7 @@
     "@commitlint/cli": "^20.3.0",
     "@pplancq/commitlint-config": "^2.3.1",
     "@pplancq/eslint-config": "^5.0.20",
-    "@pplancq/prettier-config": "^1.2.8",
+    "@pplancq/prettier-config": "^1.2.9",
     "@pplancq/semantic-release-config": "^2.0.4",
     "@types/node": "^24.10.4",
     "concurrently": "^9.2.1",
