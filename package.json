@@ -80,7 +80,7 @@
     "repositoryUrl": "https://github.com/a11ylint/playwright"
   },
   "volta": {
-    "node": "24.12.0",
+    "node": "24.13.0",
     "npm": "11.7.0"
   },
   "files": [
